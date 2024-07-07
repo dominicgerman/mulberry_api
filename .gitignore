@@ -20,3 +20,6 @@
 # Go workspace file
 go.work
 go.work.sum
+
+mulberry_api
+.env
