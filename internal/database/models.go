@@ -5,10 +5,22 @@
 package database
 
 import (
+	"database/sql"
 	"time"
 
 	"github.com/google/uuid"
 )
+
+type Task struct {
+	ID          uuid.UUID
+	UserID      uuid.UUID
+	Title       string
+	Notes       sql.NullString
+	Frequency   string
+	NextDueDate time.Time
+	CreatedAt   time.Time
+	UpdatedAt   time.Time
+}
 
 type User struct {
 	ID        uuid.UUID

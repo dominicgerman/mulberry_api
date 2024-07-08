@@ -45,7 +45,10 @@ func main() {
 	v1Router := chi.NewRouter()
 	v1Router.HandleFunc("/healtz", handlerReadiness)
 	v1Router.Post("/users", apiCfg.handlerUsersCreate)
+	v1Router.Get("/tasks", apiCfg.handlerTasksGet)
+
 	v1Router.Get("/users", apiCfg.middlewareAuth(apiCfg.handlerUsersGet))
+	v1Router.Post("/tasks", apiCfg.middlewareAuth(apiCfg.handlerTasksCreate))
 
 	router.Mount("/v1", v1Router)
 
